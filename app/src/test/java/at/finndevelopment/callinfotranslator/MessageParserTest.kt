@@ -13,18 +13,18 @@ internal class MessageParserTest{
 
     @Test
     fun getNumber_WithoutCountryCode() {
-        assertEquals("+436604009156", messageParser.getNumber("Hallo 06604009156", ""))
+        assertEquals("+436601234567", messageParser.getNumber("Hallo 06601234567", ""))
     }
     @Test
     fun getNumber_WithCountryCode() {
-        assertEquals("+436604009156", messageParser.getNumber("Hallo +436604009156", ""))
+        assertEquals("+436601234567", messageParser.getNumber("Hallo +436601234567", ""))
     }
     @Test
     fun getNumber_WithBlanket() {
-        assertEquals("+436604009156", messageParser.getNumber("Hallo +43 6604009156", ""))
+        assertEquals("+436601234567", messageParser.getNumber("Hallo +43 6601234567", ""))
     }
     @Test
     fun getNumber_IgnoreNumber() {
-        assertEquals("+436604009156", messageParser.getNumber("Hallo +43 6604009157 +43 6604009156", "+436604009157"))
+        assertEquals("+436601234567", messageParser.getNumber("Hallo +43 6601234898 +43 6601234567", "+43 436601234567"))
     }
 }
