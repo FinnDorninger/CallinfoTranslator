@@ -8,7 +8,7 @@ class MessageParser {
     private val phoneNumberUtil: PhoneNumberUtil = PhoneNumberUtil.getInstance()
     var region : String = "AT"
 
-    fun getNumber(smsText: String, ignoreNumber : String) : String {
+    fun getNumber(smsText: String, ignoreNumber : String, removeCountryCode : Boolean = false) : String {
         var number = ""
         var tempNumber : String
 
@@ -20,6 +20,10 @@ class MessageParser {
             if (tempNumber != ignoreNumber){
                 number = tempNumber
             }
+        }
+
+        if (removeCountryCode) {
+            number = removeCountryCode(number)
         }
         return number
     }
