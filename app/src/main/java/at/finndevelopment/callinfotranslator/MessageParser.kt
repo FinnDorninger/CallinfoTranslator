@@ -32,7 +32,7 @@ class MessageParser {
         return if (number.toIntOrNull() != null){
             number
         } else {
-            "0" + phoneNumberUtil.parse(number, "").nationalNumber.toString()
+            phoneNumberUtil.parse(number, null).nationalNumber.toString()
         }
     }
 }
